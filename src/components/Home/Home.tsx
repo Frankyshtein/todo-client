@@ -1,3 +1,5 @@
+import { Box, Typography } from '@mui/material';
+
 export const Home = () => {
   const getData = () => {
     const body = JSON.stringify({ description: `Do the right thing!` });
@@ -20,9 +22,8 @@ export const Home = () => {
   };
 
   return (
-    <>
-      <h1>Home Fucking Page</h1>
-      <button onClick={getData}>Get Data</button>
-    </>
+    <Box>
+      <Typography>Hey there</Typography>
+    </Box>
   );
 };

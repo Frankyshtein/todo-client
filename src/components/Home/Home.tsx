@@ -1,9 +1,8 @@
 export const Home = () => {
   const getData = () => {
-    const body = JSON.stringify({ title: 'test' });
-    console.log(body);
+    const body = JSON.stringify({ description: `Do the right thing!` });
 
-    fetch('http://localhost:4000/add-todo', {
+    fetch('http://localhost:4000/add-item', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
@@ -14,9 +13,10 @@ export const Home = () => {
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer',
       body,
-    }).then((response) => {
-      // response.json().then((text) => alert(text.text));
-    });
+    })
+      .then((response) => response.text())
+      .then((text) => console.log(text))
+      .catch((err) => console.log(err));
   };
 
   return (
